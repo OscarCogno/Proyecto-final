@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 04-08-2022 a las 15:10:28
+-- Tiempo de generación: 09-08-2022 a las 13:05:51
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `precio` int(6) NOT NULL,
   `descuento` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -51,7 +51,8 @@ INSERT INTO `productos` (`id`, `imagen`, `producto`, `precio`, `descuento`) VALU
 (7, NULL, 'Mousse y Teclado', 2000, NULL),
 (8, NULL, 'Base', 1800, NULL),
 (9, NULL, 'Funda', 2500, NULL),
-(10, '', 'mousse', 2500, '');
+(12, '', 'mousse', 2340, ''),
+(13, '', 'impresora', 24500, '');
 
 -- --------------------------------------------------------
 
