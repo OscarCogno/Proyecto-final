@@ -55,7 +55,7 @@ router.get('/editar/:id', async (req, res, next) => {
   var producto = await productosModel.getProductoById(id);
 
   
-  res.render('/admin/editar', {
+  res.render('admin/editar', {
     layout: 'admin/layout',
     producto
   })

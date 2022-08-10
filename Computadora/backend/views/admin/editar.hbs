@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Editar producto</h4>
-            <form action="/admin/productos/editar" method="post">
+            <form class="formulario" action="/admin/productos/editar" method="post">
             <input type="hidden" value="{{producto.id}}" name="id">
               <div class="mb-3 row">
                  <input type="longblob" class="form-control" placeholder="Imagen" name="imagen" value="{{producto.imagen}}">
