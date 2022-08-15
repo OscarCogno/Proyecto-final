@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 15-08-2022 a las 23:11:56
+-- Tiempo de generación: 15-08-2022 a las 23:18:26
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -51,8 +51,8 @@ INSERT INTO `productos` (`id`, `imagen`, `producto`, `precio`, `descuento`) VALU
 (7, 'lbjr9xvxtgxs18r5g0qm', 'Mousse y Teclado', 2000, ''),
 (8, 'xe8hez3jmucij0rryb3b', 'Base', 1800, ''),
 (9, 'rou9ebmf78q1gkxjbs2z', 'Funda', 2500, ''),
-(14, '', 'auriculares', 1850, '10%'),
-(15, '', 'Teclado', 2500, '20% con tarjeta de banco Nación'),
+(14, 'uqwl0fj21fp1ryykzmee', 'auriculares', 1850, '10%'),
+(15, 'kavnrwtp7mc1pag7d6nj', 'Teclado', 2500, '20% con tarjeta de banco Nación'),
 (18, 'qcu2hwvktjwilx1vsrny', 'memoria ddr5', 2500, '10% con su compra al contado'),
 (21, 'hnwijcbwyraculx7mwj2', 'Disco', 5000, '');
 
