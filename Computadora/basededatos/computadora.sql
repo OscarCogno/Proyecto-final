@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 10-08-2022 a las 14:17:52
+-- Tiempo de generación: 15-08-2022 a las 23:11:56
 -- Versión del servidor: 5.7.36
 -- Versión de PHP: 7.4.26
 
@@ -30,30 +30,31 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `productos`;
 CREATE TABLE IF NOT EXISTS `productos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `imagen` longblob,
+  `imagen` varchar(250) DEFAULT NULL,
   `producto` text NOT NULL,
   `precio` int(6) NOT NULL,
   `descuento` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id`, `imagen`, `producto`, `precio`, `descuento`) VALUES
-(1, NULL, 'Tablet', 12000, '10%'),
-(2, NULL, 'Notebook', 80000, '10%'),
-(3, NULL, 'Mobiliario', 20000, '10%'),
-(4, NULL, 'Computadora', 12000, NULL),
-(5, NULL, 'Notebook', 80000, NULL),
-(6, NULL, 'Notebook', 20000, NULL),
-(7, NULL, 'Mousse y Teclado', 2000, NULL),
-(8, NULL, 'Base', 1800, NULL),
-(9, NULL, 'Funda', 2500, NULL),
+(1, 'xoaqnn9vbljoc2urgmii', 'Tablet', 12000, '5%'),
+(2, 'yynfxcdhow7g1aj6midy', 'Notebook', 80000, '10%'),
+(3, 'jtc0xhup8dbnxxf8k9xj', 'Mobiliario', 20000, '10% con debito automático'),
+(4, 'uzocf1ghgmcovfedlwkj', 'Computadora', 12000, ''),
+(5, 'smvtyfbvy4rztfeuwqid', 'Notebook', 20000, ''),
+(6, 'anku0blfpqquwdn8iezh', 'Notebook', 80000, ''),
+(7, 'lbjr9xvxtgxs18r5g0qm', 'Mousse y Teclado', 2000, ''),
+(8, 'xe8hez3jmucij0rryb3b', 'Base', 1800, ''),
+(9, 'rou9ebmf78q1gkxjbs2z', 'Funda', 2500, ''),
 (14, '', 'auriculares', 1850, '10%'),
-(15, '', 'Teclado', 2500, '20%'),
-(17, '', 'Memoria ddr5', 2500, '');
+(15, '', 'Teclado', 2500, '20% con tarjeta de banco Nación'),
+(18, 'qcu2hwvktjwilx1vsrny', 'memoria ddr5', 2500, '10% con su compra al contado'),
+(21, 'hnwijcbwyraculx7mwj2', 'Disco', 5000, '');
 
 -- --------------------------------------------------------
 
