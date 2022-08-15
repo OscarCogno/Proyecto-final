@@ -1,10 +1,10 @@
-<div class="container">
+<div >
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Agregar un nuevo producto</h4>
-            <form class="formulario" action="/admin/productos/agregar" method="post">
+            <form class="formulario" action="/admin/productos/agregar" method="post" enctype="multipart/form-data">
               <div class="mb-3 row">
-                 <input type="longblob" class="form-control" placeholder="Imagen" name="imagen">
+                 <input type="file" class="form-control" placeholder="Imagen" name="imagen" id="imagen">
               </div>
               <div class="mb-3 row">
                    <textarea type="text" class="form-control" placeholder="Producto" name="producto"></textarea>
