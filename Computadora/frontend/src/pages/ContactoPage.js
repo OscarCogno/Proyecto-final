@@ -48,7 +48,7 @@ const ContactoPage = (props) => {
       <fieldset>
         <p>
           <label for="Nombre">Nombre:</label>
-          <input type="text"  name="nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
+          <input type="text" name="nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
           
         </p>
         
