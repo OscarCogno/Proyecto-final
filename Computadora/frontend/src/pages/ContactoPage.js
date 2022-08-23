@@ -9,10 +9,10 @@ import axios from 'axios';
 const ContactoPage = (props) => {
 
     const initialForm = {
-      Nombre: '',
-      Email: '',
-      Celular: '',
-      Mensaje: ''
+      nombre: '',
+      email: '',
+      celular: '',
+      mensaje: ''
     }
 
     const [sending, setSending] = useState(false);
@@ -41,33 +41,33 @@ const ContactoPage = (props) => {
 
     return (
       <main>
-      <form action='/contacto' method='post'onSubmit={handleSubmit} className="formulario" >
+      <form action='/contacto' method='post' onSubmit={handleSubmit} className="formulario" >
     
       
       <label className="correr" for="Información del cliente"><b>Información del cliente:</b></label>
       <fieldset>
         <p>
           <label for="Nombre">Nombre:</label>
-          <input type="text"  name="Nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
+          <input type="text"  name="nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
           
         </p>
         
         <p>
           <label for="Email"><FontAwesomeIcon icon= {faEnvelope} /> Email:</label>
-          <input type="text" name="Email" value={formData.email} onchange={handleChange}  placeholder="Email"/>
+          <input type="text" name="email" value={formData.email} onchange={handleChange}  placeholder="Email"/>
           
         </p>
         <p>
         <label for="Celular"><FontAwesomeIcon icon= {faMobile} /> Celular:</label>
-          <input type="text"  name="Celular" value={formData.celular} onchange={handleChange}  placeholder="Celular"/>
+          <input type="text"  name="celular" value={formData.celular} onchange={handleChange}  placeholder="Celular"/>
           
         </p>
       </fieldset>
       <label className="correr" for="Ingrese su mensaje"><b>Ingrese su mensaje:</b></label>
       
       <fieldset>
-        <label for="text">Mensaje:</label><br></br>
-        <textarea name="Mensaje" value={formData.mensaje} onchange={handleChange} ></textarea><br></br>
+        <label for="Mensaje">Mensaje:</label><br></br>
+        <textarea name="mensaje" value={formData.mensaje} onchange={handleChange} ></textarea><br></br>
         <input type="submit" value="Enviar"/>
 
          {sending ? <p>Enviando...</p> : null}
