@@ -3,60 +3,95 @@ import '../styles/components/pages/estilos.css';
 import '../styles/components/pages/normalize.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faMobile, faPhone} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
+import axios from 'axios';
 
 const ContactoPage = (props) => {
+
+    const initialForm = {
+      Nombre: '',
+      Email: '',
+      Celular: '',
+      Mensaje: ''
+    }
+
+    const [sending, setSending] = useState(false);
+    const [msg, setMsg] = useState('');
+    const [formData, setFormData] = useState(initialForm);
+
+    const handleChange = e => {
+       const { name, value } = e.target;
+       setFormData(oldData => ({
+           ...oldData,
+           [name]: value
+       }));
+    }
+
+    const handleSubmit = async e => {
+       e.preventDefault();
+       setMsg('');
+       setSending(true);
+       const response = await axios.post('http://localhost:3000/api/contacto', formData);
+       setSending(false);
+       setMsg(response.data.message);
+       if (response.data.error === false) {
+          setFormData(initialForm)
+       }
+    }
+
     return (
       <main>
-      <form className="formulario" name="form_main">
+      <form action='/contacto' method='post'onSubmit={handleSubmit} className="formulario" >
     
       
-      <label className="correr" htmlFor="Información del cliente"><b>Información del cliente:</b></label>
+      <label className="correr" for="Información del cliente"><b>Información del cliente:</b></label>
       <fieldset>
         <p>
-          <label htmlFor="Nombre">Nombre:</label>
-          <input type="text" required name="nombre" placeholder="Tu nombre"/>
+          <label for="Nombre">Nombre:</label>
+          <input type="text"  name="Nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
+          
+        </p>
+        
+        <p>
+          <label for="Email"><FontAwesomeIcon icon= {faEnvelope} /> Email:</label>
+          <input type="text" name="Email" value={formData.email} onchange={handleChange}  placeholder="Email"/>
           
         </p>
         <p>
-          <label htmlFor="Apellido">Apellido:</label>
-          <input type="text" required name="apellido" placeholder="Tu apellido"/>
-          
-        </p>
-        <p>
-          <label htmlFor="Email"><FontAwesomeIcon icon= {faEnvelope} /> Email:</label>
-          <input type="text" required name="email" placeholder="Email"/>
+        <label for="Celular"><FontAwesomeIcon icon= {faMobile} /> Celular:</label>
+          <input type="text"  name="Celular" value={formData.celular} onchange={handleChange}  placeholder="Celular"/>
           
         </p>
       </fieldset>
-      <label className="correr" htmlFor="Ingrese su mensaje"><b>Ingrese su mensaje:</b></label>
+      <label className="correr" for="Ingrese su mensaje"><b>Ingrese su mensaje:</b></label>
       
       <fieldset>
-        <label htmlFor="text">Mensaje:</label><br></br>
-        <textarea name="text" id="text" cols="30" rows="10" oninput="contadorTexto()"></textarea><br></br>
-        <label htmlFor="caracteres">Caracteres contados:</label><span id="caracteres"></span><br></br>
-        <label htmlFor="palabras">Palabras:</label><span id="palabras"></span><br></br>
-        <label htmlFor="lineas">Lineas:</label><span id="lineas"></span><br></br>
+        <label for="text">Mensaje:</label><br></br>
+        <textarea name="Mensaje" value={formData.mensaje} onchange={handleChange} ></textarea><br></br>
         <input type="submit" value="Enviar"/>
+
+         {sending ? <p>Enviando...</p> : null}
+         {msg ? <p>{msg}</p> : null}
 
       </fieldset>
     
-      <label className="correr" htmlFor="Informacion de contacto"><b>Información de contacto: </b></label>
+      <label className="correr" for="Informacion de contacto"><b>Información de contacto: </b></label>
       <fieldset>
         <p>
-          <label htmlFor="Email:"> <FontAwesomeIcon icon= {faEnvelope} /><b> Email:</b> tuproximacompu@gmail.com</label>
+          <label for="Email:"> <FontAwesomeIcon icon= {faEnvelope} /><b> Email:</b> tuproximacompu@gmail.com</label>
         </p>
         <p>
-          <label htmlFor="Celular"> <FontAwesomeIcon icon= {faMobile} /><b><i> Celular: </i></b>3435123456</label>
+          <label for="Celular"> <FontAwesomeIcon icon= {faMobile} /><b><i> Celular: </i></b>3435123456</label>
         </p>
         <p>
-          <label htmlFor="Teléfono Fijo"> <FontAwesomeIcon icon= {faPhone} /><b><i> Teléfono
+          <label for="Teléfono Fijo"> <FontAwesomeIcon icon= {faPhone} /><b><i> Teléfono
                 fijo: </i></b>4363431</label>
         </p>
         <p>
-          <label htmlFor="Información de ubicación"><b>Información de ubicación:</b></label>
+          <label for="Información de ubicación"><b>Información de ubicación:</b></label>
         </p>
         <p>
-          <label htmlFor="Ubicación"><b><i>Ubicación: </i></b>Entre Ríos 3434</label>
+          <label for="Ubicación"><b><i>Ubicación: </i></b>Entre Ríos 3434</label>
         </p>
       </fieldset>
   </form>
