@@ -48,18 +48,18 @@ const ContactoPage = (props) => {
       <fieldset>
         <p>
           <label for="Nombre">Nombre:</label>
-          <input type="text" name="nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre"/>
+          <input type="text" name="nombre" value={formData.nombre} onchange={handleChange}  placeholder="Tu nombre" required/>
           
         </p>
         
         <p>
           <label for="Email"><FontAwesomeIcon icon= {faEnvelope} /> Email:</label>
-          <input type="text" name="email" value={formData.email} onchange={handleChange}  placeholder="Email"/>
+          <input type="text" name="email" value={formData.email} onchange={handleChange}  placeholder="Email" required/>
           
         </p>
         <p>
         <label for="Celular"><FontAwesomeIcon icon= {faMobile} /> Celular:</label>
-          <input type="text"  name="celular" value={formData.celular} onchange={handleChange}  placeholder="Celular"/>
+          <input type="text"  name="celular" value={formData.celular} onchange={handleChange}  placeholder="Celular" required/>
           
         </p>
       </fieldset>
@@ -67,7 +67,7 @@ const ContactoPage = (props) => {
       
       <fieldset>
         <label for="Mensaje">Mensaje:</label><br></br>
-        <textarea name="mensaje" value={formData.mensaje} onchange={handleChange} ></textarea><br></br>
+        <textarea name="mensaje" value={formData.mensaje} onchange={handleChange} required></textarea><br></br>
         <input type="submit" value="Enviar"/>
 
          {sending ? <p>Enviando...</p> : null}
